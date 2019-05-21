@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete</title>
+</head>
+<body>
+    <th:block th:if="${message}">
+        <p th:text="${message}"></p>
+    </th:block>
+    <form th:object="${staff}" method="post">
+        <input th:value="*{id}" disabled><br/>
+        <input th:value="*{firstName}" disabled ><br/>
+        <input th:value="*{lastName}" disabled ><br/>
+        <input th:value="*{birth}" disabled ><br/>
+        <input th:value="*{phone}" disabled ><br/>
+        <input th:value="*{address}" disabled ><br/>
+        <input th:value="*{sex}" disabled ><br/>
+        <input th:value="*{email}" disabled ><br/>
+        <input th:value="*{department.name}" disabled ><br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <input type="submit" value="Delete Staff">
+    </form>
+</body>
+</html>

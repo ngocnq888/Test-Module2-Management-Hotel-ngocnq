@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new a Staff</title>
+</head>
+<body>
+    <th:block th:if="${message}">
+        <p th:text="${message}"></p>
+    </th:block>
+    <form th:object="${staff}" method="post" th:action="@{/create-form}" >
+        <label>ID:</label>
+        <input th:field="*{id}" type="text">
+        <br/>
+        <label>Fist Name:</label>
+        <input type="text" th:field="*{firstName}" >
+        <br/>
+        <label>Last Name:</label>
+        <input th:field="*{lastName}" type="text">
+        <br/>
+        <label>Birth Day:</label>
+        <input th:field="*{birth}" type="text">
+        <br/>
+        <label>Sex:</label>
+        <input th:field="*{sex}" type="text">
+        <br/>
+        <label>Phone:</label>
+        <input th:field="*{phone}" type="text">
+        <br/>
+        <label>Address:</label>
+        <input th:field="*{address}" type="text">
+        <br/>
+        <label>Email:</label>
+        <input th:field="*{email}" type="text">
+        <br/>
+        <select th:field="*{department}">
+            <option th:each="department : ${departments}" th:text="${department.name}" th:value="${department.id}"></option>
+        </select>
+        <br/>
+        <br/>
+        <br/>
+        <input type="submit" value="Create New !">
+    </form>
+</body>
+</html>

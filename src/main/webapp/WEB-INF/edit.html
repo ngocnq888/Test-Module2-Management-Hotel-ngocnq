@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Staff</title>
+</head>
+<body>
+    <th:block th:if="${message}">
+        <p th:text="${message}"></p>
+    </th:block>
+    <form th:object="${staff}" method="post">
+        <input th:field="*{id}" th:value="*{id}"><br/>
+        <input th:field="*{firstName}" th:value="*{id}"><br/>
+        <input th:field="*{lastName}" th:value="*{id}"><br/>
+        <input th:field="*{birth}" th:value="*{id}"><br/>
+        <input th:field="*{address}" th:value="*{id}"><br/>
+        <input th:field="*{phone}" th:value="*{id}"><br/>
+        <input th:field="*{sex}" th:value="*{id}"><br/>
+        <input th:field="*{email}" th:value="*{id}"><br/>
+        <select th:field="*{department}">
+            <option th:each="department : ${departments}" th:text="${department.name}" th:value="${department.id}"></option>
+        </select>
+        <br/>
+        <br/>
+        <br/>
+        <input type="submit">
+    </form>
+</body>
+</html>

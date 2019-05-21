@@ -5,17 +5,24 @@
     <title>list all Staff</title>
 </head>
 <body>
+    <button><a th:href="@{/create}">Create Staff</a></button>
+
     <table border="1">
         <tr>
+            <td>ID:</td>
             <td>Fist Name:</td>
             <td>Last Name:</td>
+            <td>Birth:</td>
             <td>Sex:</td>
             <td>Phone:</td>
             <td>Address:</td>
             <td>Email:</td>
             <td>Department:</td>
+            <td>Edit:</td>
+            <td>Delete:</td>
         </tr>
-        <tr th:each="staff: ${staffs}">
+        <tr th:each="staff:${staffs}">
+            <td th:text="${staff.id}"></td>
             <td th:text="${staff.firstName}"></td>
             <td th:text="${staff.lastName}"></td>
             <td th:text="${staff.birth}"></td>
@@ -24,8 +31,14 @@
             <td th:text="${staff.address}"></td>
             <td th:text="${staff.email}"></td>
             <td th:text="${staff.department.name}"></td>
+            <td><a th:href="@{/edit/__${staff.id}__}">Edit</a></td>
+            <td><a th:href="@{/delete/__${staff.id}__}">Delete</a></td>
         </tr>
     </table>
+    <form >
+        <input type="text" name="search"><br/>
+        <input type="submit">
+    </form>
     <div>
         <a th:href="@{'/staffs'(page=${staffs.number - 1})}" th:if="${staffs.hasPrevious()}">Previous</a>
         <span th:text="${staffs.number + 1}"></span>/<span th:text="${staffs.totalPages}"></span>

@@ -10,7 +10,4 @@ public interface StaffRepository extends PagingAndSortingRepository<Staff,Long> 
     Page<Staff> findAllBy(Pageable pageable);
     Page<Staff> findAllByDepartment(Department department,Pageable pageable);
     Page<Staff> findAllByFirstNameContains(String firstName,Pageable pageable);
-    Staff findOne(Long id);
-    Staff save(Staff staff);
-    void delete(Long id);
 }

@@ -1,13 +1,12 @@
 package com.ngocnq.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "Staff")
 public class Staff {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String firstName;
@@ -18,15 +17,14 @@ public class Staff {
     private String address;
     private String email;
 
-    @ManyToOne(targetEntity =Department.class)
+    @ManyToOne(targetEntity = Department.class)
     @JoinColumn(name = "Department_id")
     private Department department;
 
     public Staff() {
     }
 
-    public Staff(Long id, String firstName, String lastName, String birth, String sex, Long phone, String address, String email, Department department) {
-        this.id = id;
+    public Staff(String firstName, String lastName, String birth, String sex, Long phone, String address, String email, Department department) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birth = birth;

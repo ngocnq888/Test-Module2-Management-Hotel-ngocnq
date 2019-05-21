@@ -1,6 +1,8 @@
 package com.ngocnq;
 
+import com.ngocnq.service.DepartmentService;
 import com.ngocnq.service.StaffService;
+import com.ngocnq.service.impl.DepartmentServiceImpl;
 import com.ngocnq.service.impl.StaffServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -82,7 +84,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[]{"com.ngocnq.model"});
+        em.setPackagesToScan("com.ngocnq.model");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -119,5 +121,8 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     public StaffService staffService(){
         return new StaffServiceImpl();
     }
-
+    @Bean
+    public DepartmentService departmentService(){
+        return new DepartmentServiceImpl();
+    }
 }

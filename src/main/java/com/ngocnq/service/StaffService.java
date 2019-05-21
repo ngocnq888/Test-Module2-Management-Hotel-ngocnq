@@ -10,6 +10,6 @@ public interface StaffService  {
     Page<Staff> findAllByDepartment(Department department,Pageable pageable);
     Page<Staff> findAllByFirstNameContains(String firstName,Pageable pageable);
     Staff findOne(Long id);
-    Staff save(Staff staff);
+    void save(Staff staff);
     void delete(Long id);
 }

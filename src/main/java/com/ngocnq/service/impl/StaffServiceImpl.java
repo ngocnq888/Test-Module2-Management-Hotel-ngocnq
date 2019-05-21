@@ -32,8 +32,8 @@ public class StaffServiceImpl implements StaffService {
     }
 
     @Override
-    public Staff save(Staff staff) {
-        return staffRepository.save(staff);
+    public void save(Staff staff) {
+        staffRepository.save(staff);
     }
 
     @Override
